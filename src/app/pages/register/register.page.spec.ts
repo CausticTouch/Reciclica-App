@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { RegisterPage } from './register.page';
@@ -6,6 +7,7 @@ import { RegisterPage } from './register.page';
 describe('RegisterPage', () => {
   let component: RegisterPage;
   let fixture: ComponentFixture<RegisterPage>;
+  let router: Router;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -18,7 +20,11 @@ describe('RegisterPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should go to homescreen', () => {
+    spyOn(router, 'navigate');
+
+    component.register();
+
+    expect(router.navigate).toHaveBeenCalledWith('home');
   });
 });

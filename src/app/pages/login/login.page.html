@@ -15,8 +15,8 @@
           <ion-input type="password"></ion-input>
         </ion-item>
         <ion-button color="dark" fill="clear" class="forgot" expand="block">Forgot email/password</ion-button>
-        <ion-button color="success" expand="block">Login</ion-button>
-        <ion-button color="success" fill="clear" expand="block" class="regis">Register</ion-button>
+        <ion-button color="success" expand="block" (click)="login()">Login</ion-button>
+        <ion-button color="success" fill="clear" expand="block" class="regis" (click)="register()">Register</ion-button>
       </ion-card-content>
     </ion-card>    
   </div>
