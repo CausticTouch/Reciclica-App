@@ -34,6 +34,9 @@ describe('LoginPageForm', () => {
         expect(form.get('email').valid).toBeTruthy();
     });
     it('valid form', () => {
+        form.get('email').setValue('valid@email.com');
+        form.get('password').setValue('password');
+
         expect(form.valid).toBeTruthy();
     })
 })

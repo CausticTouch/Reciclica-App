@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -13,7 +14,7 @@ describe('LoginPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginPage ],
-      imports: [IonicModule.forRoot(), AppRoutingModule]
+      imports: [IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginPage);
@@ -23,6 +24,12 @@ describe('LoginPage', () => {
     fixture.detectChanges();
   }));
 
+  it('create form', () => {
+    component.ngOnInit();
+
+    expect(component.form).not.toBeUndefined();
+  });
+
   it('should go to homescreen', () => {
     spyOn(router, 'navigate');
 
@@ -30,6 +37,7 @@ describe('LoginPage', () => {
 
     expect(router.navigate).toHaveBeenCalledWith('home');
   });
+
   it('should go to register', () => {
     spyOn(router, 'navigate');
 
@@ -37,4 +45,5 @@ describe('LoginPage', () => {
 
     expect(router.navigate).toHaveBeenCalledWith('register');
   });
+  
 });
