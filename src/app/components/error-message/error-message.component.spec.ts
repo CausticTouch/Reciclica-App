@@ -38,4 +38,21 @@ describe('ErrorMessageComponent', () => {
     expect(component.shouldShowComponent()).toBeFalsy();
   });
 
+  it ('not show error message', () => {
+    component.field = new FormGroup({anyField: new FormControl()});
+
+    component.field.markAsTouched();
+    component.error = "anyError"
+
+    expect(component.shouldShowComponent()).toBeFalsy();
+  });
+  it('hide error message', () => {
+    component.field = new FormGroup({anyField: new FormControl()});
+
+    component.field.markAsTouched();
+    component.field.setErrors({anyError: true});
+    component.error = "anotherError"
+
+    expect(component.shouldShowComponent()).toBeFalsy();
+  })
 });
